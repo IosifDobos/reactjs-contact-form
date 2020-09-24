@@ -1,0 +1,31 @@
+{
+  "name": "reactjs-contact-form",
+  "version": "1.0.0",
+  "description": "Contact form using React and NodeJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "server": "nodemon index.js",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"  "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IosifDobos/reactjs-contact-form.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IosifDobos/reactjs-contact-form/issues"
+  },
+  "homepage": "https://github.com/IosifDobos/reactjs-contact-form#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "concurrently": "^5.3.0",
+    "express": "^4.17.1",
+    "nodemailer": "^6.4.11",
+    "nodemon": "^2.0.4"
+  }
+}
