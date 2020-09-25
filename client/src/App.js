@@ -14,7 +14,6 @@ class App extends Component {
     this.state = {
       name: '',
       email: '',
-      subject: '',
       message: ''
     }
 
@@ -30,12 +29,11 @@ class App extends Component {
   async handleSubmit(e) {
     e.preventDefault();
 
-    const {name, email, subject, message} = this.state;
+    const {name, email, message} = this.state;
 
-    const form  = await axios.post('/api/form', {
+    const form  = await axios.post('/', {
       name,
       email,
-      subject,
       message
     })
 
@@ -62,13 +60,13 @@ class App extends Component {
               onChange={this.handleChange} />
           </FormGroup>
 
-          <FormGroup>
+          {/* <FormGroup>
             <Label for="subject">Subject: </Label>
             <Input
               type="text"
               name="subject"
               onChange={this.handleChange} />
-          </FormGroup>
+          </FormGroup> */}
 
           <FormGroup>
             <Label for="message">Message: </Label>

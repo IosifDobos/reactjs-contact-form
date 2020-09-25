@@ -4,27 +4,29 @@ const nodemailer = require('nodemailer')
 const { request } = require('http')
 const app = express()
 
+
+//body parser middleware
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
-app.post('/api/form', (req, res) => {
+app.post('/', (req, res) => {
     nodemailer.createTestAccount( (err, account) => {
-        const htmlEmail = `
+        const htmlEmail =`
             <h3>Contact Details</h3>
             <ul>
                 <li>Name: ${req.body.name}</li>
                 <li>Email: ${req.body.email}</li>
             </ul>
             <h3>Message</h3>
-            <p>${req.body.message}</p>
-        `
+            <p>${req.body.message}</p>`
 
         let transporter = nodemailer.createTransport({
-            host: 'smtp.etheral.email',
-            port: 587,
-            auth: {
-                user: 'francesca.bahringer@ethereal.email',
-                pass: '62s7aagGA9WvuWxzyw'
+            host:'smtp.etheral.email',
+            port:587,
+            secure: 'STARTTLS',
+            auth:{
+                user:'francesca.bahringer@ethereal.email',
+                pass:'62s7aagGA9WvuWxzyw'
             }
         })
 
@@ -50,7 +52,7 @@ app.post('/api/form', (req, res) => {
     console.log(req.body)
 })
 
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 3001
 
 app.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}`)
